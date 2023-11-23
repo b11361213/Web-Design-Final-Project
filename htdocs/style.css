@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Sarasa UI TC";
+    src: url("font/sarasa-ui-tc-regular.ttf");
+}
+
+body {
+    background-color: #ededed;
+    font-family: "Sarasa UI TC";
+}
+
+.container-style {
+    position: relative;
+    top: 50vh;
+    transform: translate(-0%, -50%);
+    border-radius: 16px;
+    /* font-size: 32px; */
+}
+
+.btn {
+    border-radius: 18px;
+}
+
+/* .row-style {
+    background-color: #cccccc;
+}
+.col-style {
+    background-color: #cccccc;
+} */
