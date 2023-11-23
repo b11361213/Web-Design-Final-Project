@@ -4,56 +4,83 @@
 <head>
     <link rel="icon" type="image/gif" href="image/konata.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
     <!-- Vue3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="style.css">
-
     <title>Sign in</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand">
+        <div class="container-fluid justify-content-end">
+            <div class="nav-item p-3">
+                <a href="/signup.html" id="navbar-btn" class="nav-link active">
+                    Sign up
+                </a>
+            </div>
+            <div class="nav-item p-3">
+                <a href="signin.html" id="navbar-btn" class="nav-link active">
+                    Sign in
+                </a>
+            </div>
+            <button class="btn btn-lg ms-2 border-0" id="navbar-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                    class="bi bi-translate" viewBox="0 0 16 16">
+                    <path
+                        d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z" />
+                    <path
+                        d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z" />
+                </svg>
+            </button>
+            <button class="btn btn-lg border-0" id="navbar-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                    class="bi bi-moon-stars" viewBox="0 0 16 16">
+                    <path
+                        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278M4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+                    <path
+                        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+                </svg>
+            </button>
+    </nav>
     <div class="container-parent">
-
         <div
-            class="container container-style col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xxl-3 text-center bg-light shadow-lg p-4">
-            <div class="row row-stlye align-items-center m-3 mb-0 border-bottom p-3">
-                <div class="col col-stlye">
+            class="container container-style col-sm-8 col-md-6 col-lg-4 col-xl-4 col-xxl-3 bg-light shadow-lg p-4">
+            <div class="row row-stlye border-bottom m-3 mb-0 p-3">
+                <div class="col col-stlye text-center">
                     <div class="text">
                         <div class="fs-3 fw-bold">Sign in</div>
                     </div>
                 </div>
             </div>
-
             <div class="row row-style m-3 mb-0 p-3 pb-0">
                 <div class="col col-stlye">
                     <div class="input-group input-group-md mb-3">
                         <input type="email" class="form-control" aria-label="Default"
                             aria-describedby="inputGroup-sizing-sm" placeholder="Username or email">
                     </div>
-                    <div class="input-group input-group-md mb-3">
+                    <div class="input-group input-group-md">
                         <input type="password" class="form-control" aria-label="Default"
                             aria-describedby="inputGroup-sizing-sm" placeholder="Password">
                     </div>
                 </div>
             </div>
-
-            <div class="row row-style m-5 mt-0 mb-0 p-5 pt-0 pb-0">
-                <button type="button" class="btn btn-outline-dark btn-block">Sign in</button>
+            <div class="row row-style m-3 mt-0 p-3 pt-0 ">
+                <div class="class col col-style text-end">
+                    <a href="/resetpasswd.html" class="a-style small">Forgot your password?</a>
+                </div>
             </div>
-
+            <div class="row row-style m-5 mt-0 mb-0 p-5 pt-0 pb-0">
+                <button type="button" class="btn btn-style btn-outline-dark btn-block">Sign in</button>
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>
