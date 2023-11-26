@@ -40,7 +40,7 @@ body {
 
 @media (max-width: 750px),
 (max-height: 700px) {
-    .navbar-style {
+    .outsite-navbar-style {
         display: none;
     }
 }
