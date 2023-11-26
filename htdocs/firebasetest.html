@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Test</title>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js'
+
+        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js'
+
+        // Add Firebase products that you want to use
+        // import { getAuth } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js'
+        // import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js'
+        import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+        const firebaseConfig = {
+            apiKey: "",
+            authDomain: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: "",
+            measurementId: ""
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        var email = 'admin@admin.dev';
+        var passwd = 'admin';
+
+        const auth = getAuth(app);
+        createUserWithEmailAndPassword(auth, email, password)
+            // firebase.auth().createUserWithEmailAndPassword(email, passwd)
+            .then((userCredential) => {
+
+                // Signed in
+                var user = userCredential.user;
+
+                // Initialize Cloud Firestore and get a reference to the service
+                const db = firebase.firestore();
+                var ref = db.collection('profiles').doc('profiles');
+
+                let date = new Date();
+                let now = date.getTime();
+                ref.set({
+                    birthday: '2020/0202',
+                    createdate: now,
+                    email: email,
+                    uid: user.id,
+                    username: 'admin'
+                }).then(() => {
+                    console.log('set data successful');
+                });
+            });
+
+        // const firebaseConfig = {
+	//     apiKey: "",
+	//     authDomain: "",
+	//     projectId: "",
+	//     storageBucket: "",
+	//     messagingSenderId: "",
+	//     appId: "",
+	//     measurementId: ""
+        // };
+        // // Initialize Firebase
+        // const firebase = initializeApp(firebaseConfig);
+
+        // firebase.auth().createUserWithEmailAndPassword(email, passwd)
+        //     .then((userCredential) => {
+
+        //         // Initialize Cloud Firestore and get a reference to the service
+        //         const db = firebase.firestore();
+        //         var ref = db.collection('profiles').doc('profiles');
+
+        //         let date = new Date();
+        //         let now = date.getTime();
+        //         ref.set({
+        //             birthday: '',
+        //             createdate: now,
+        //             email: '',
+        //             uid: '',
+        //             username: ''
+        //         }).then(() => {
+        //             console.log('set data successful');
+        //         });
+
+        //         // Signed in
+        //         var user = userCredential.user;
+        //         // ...
+        //     })
+        //     .catch((error) => {
+        //         var errorCode = error.code;
+        //         var errorMessage = error.message;
+
+        //         if (errorCode == 'auth/email-already-in-use') {
+        //             $('#AlertLabelTitle').text('⚠️ The password is too weak');
+        //             $('#AlertLabelContent').text(errorMessage);
+        //             $('#AlertLabel').modal('toggle');
+        //         }
+        //         else if (errorCode == 'auth/invalid-email') {
+        //             $('#AlertLabelTitle').text('⚠️ The email address is not valid');
+        //             $('#AlertLabelContent').text(errorMessage);
+        //             $('#AlertLabel').modal('toggle');
+        //         }
+        //         else if (errorCode == 'auth/operation-not-allowed') {
+        //             $('#AlertLabelTitle').text('⚠️ ' + errorCode);
+        //             $('#AlertLabelContent').text(errorMessage);
+        //             $('#AlertLabel').modal('toggle');
+        //         }
+        //         else if (errorCode == 'auth/weak-password') {
+        //             $('#AlertLabelTitle').text('⚠️ The password is too weak');
+        //             $('#AlertLabelContent').text(errorMessage);
+        //             $('#AlertLabel').modal('toggle');
+        //         } else {
+        //             alert(errorMessage);
+        //         }
+        //         console.log(error);
+        //     });
+
+    </script>
+</body>
+
+</html>

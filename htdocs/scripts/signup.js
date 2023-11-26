@@ -1,6 +1,6 @@
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+const flag = {
+    signupFlag: false
+};
 
 function signup() {
     var username = document.getElementById('username').value;
@@ -47,64 +47,7 @@ function signup() {
         $('#AlertLabel').modal('toggle');
     }
     else {
-        let signupFlag = true;
+        flag.signupFlag = true;
     }
-    if (signupFlag == true) {
-        firebase.auth().createUserWithEmailAndPassword(email, passwd)
-            .then((userCredential) => {
-                import firebase from "firebase/app";
-                import "firebase/firestore";
-
-                // Initialize Firebase
-                firebase.initializeApp(firebaseConfig);
-
-                // Initialize Cloud Firestore and get a reference to the service
-                const db = firebase.firestore();
-                var ref = db.collection('profiles').doc('profiles');
-
-                let date = new Date();
-                let now = date.getTime();
-                ref.set({
-                    birthday: '',
-                    createdate: now,
-                    email: '',
-                    uid: '',
-                    username: ''
-                }).then(() => {
-                    console.log('set data successful');
-                });
-
-                // Signed in
-                var user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-
-                if (errorCode == 'auth/email-already-in-use') {
-                    $('#AlertLabelTitle').text('⚠️ The password is too weak');
-                    $('#AlertLabelContent').text(errorMessage);
-                    $('#AlertLabel').modal('toggle');
-                }
-                else if (errorCode == 'auth/invalid-email') {
-                    $('#AlertLabelTitle').text('⚠️ The email address is not valid');
-                    $('#AlertLabelContent').text(errorMessage);
-                    $('#AlertLabel').modal('toggle');
-                }
-                else if (errorCode == 'auth/operation-not-allowed') {
-                    $('#AlertLabelTitle').text('⚠️ ' + errorCode);
-                    $('#AlertLabelContent').text(errorMessage);
-                    $('#AlertLabel').modal('toggle');
-                }
-                else if (errorCode == 'auth/weak-password') {
-                    $('#AlertLabelTitle').text('⚠️ The password is too weak');
-                    $('#AlertLabelContent').text(errorMessage);
-                    $('#AlertLabel').modal('toggle');
-                } else {
-                    alert(errorMessage);
-                }
-                console.log(error);
-            });
-    }
+        
 }
