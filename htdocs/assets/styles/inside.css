@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Sarasa UI TC";
-    src: url("font/sarasa-ui-tc-regular.ttf");
+    src: url("/assets/fonts/sarasa-ui-tc-regular.ttf");
 }
 
 body {
@@ -8,48 +8,13 @@ body {
     font-family: "Sarasa UI TC";
 }
 
-/*
- *  ========
- * outsite (sign up / sign in)
- *  ========
- */
-
 #navbar-btn:hover {
     color: cornflowerblue;
 }
 
-.outsite-container-style {
-    position: relative;
-    top: 50vh;
-    transform: translate(-0%, -60%);
-    border-radius: 16px;
-}
-
-.outsite-signup {
-    width: 450px;
-    height: 500px;
-}
-
-.outsite-signin {
-    width: 450px;
-    height: 400px;
-}
-
-.outsite-btn-style {
-    border-radius: 18px;
-}
-
-.outsite-a-style {
-    text-decoration: none;
-}
-
-.navbar-style {
-    background-color: #ffffff;
-}
-
 /*
  *  ========
- * insite (homepage etc.)
+ * inside (homepage etc.)
  *  ========
  */
 
@@ -89,8 +54,8 @@ body {
 
 
 .profile-banner {
-        background-size: 860px auto;
-    background-image: url(image/banner-corp.jpg);
+    background-size: 860px auto;
+    background-image: url(/assets/images/banner-corp.jpg);
     background-position: center calc(50% + 16px);
     background-color: wheat;
     height: 300px;
@@ -126,7 +91,7 @@ body {
 .article-banner {
     height: 300px;
     background-size: 860px auto;
-    background-image: url(image/banner-corp.jpg);
+    background-image: url(/assets/images/banner-corp.jpg);
     background-position: center calc(50% + 16px);
     border-radius: 15px 15px 0px 0px;
 }
@@ -140,23 +105,7 @@ body {
     white-space: nowrap;
 }
 
-@media (max-width: 750px),
-(max-height: 700px) {
-    .outsite-navbar-style {
-        display: none;
-    }
-}
 
-@media (max-width: 750px),
-(max-width: 550px) and (max-height: 750px) {
-    .outsite-container-style {
-        width: 100vw;
-        height: 100vh;
-        top: 0vh;
-        transform: translate(-0%, -0%);
-        border-radius: 0px;
-    }
-}
 
 @media (max-width: 1400px) {
     .profile-panel-right {
